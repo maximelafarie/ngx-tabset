@@ -47,7 +47,7 @@ import {TabTranscludeDirective} from "./tab-transclude";
         </style>
         <div class="container">
             <ul class="tabset-header"
-                [ngClass]="{'nav-tabs': !pills, 'nav-pills': pills, 'tabset-style': !disableStyle}">
+                [ngClass]="{'tabset-style': !disableStyle}">
                 <li role="presentation" *ngFor="let tab of tabs" [class.active]="tab.active"
                     [class.disabled]="tab.disabled" (click)="changeActiveTab(tab)">
                     <span [tabTransclude]="tab.headingTemplate">{{tab.title}}</span>
@@ -60,10 +60,6 @@ import {TabTranscludeDirective} from "./tab-transclude";
     `
 })
 export class TabsetComponent implements AfterContentInit {
-
-    @Input()
-    public pills: boolean;
-
     @Input()
     public disableStyle: boolean;
 
