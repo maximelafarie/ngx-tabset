@@ -45,14 +45,16 @@ import {TabTranscludeDirective} from "./tab-transclude";
             .tabset-content {
             }
         </style>
-        <div class="container">
-            <ul class="tabset-header"
+        <nav>
+            <ul class="tabset-header container"
                 [ngClass]="{'tabset-style': !disableStyle}">
                 <li role="presentation" *ngFor="let tab of tabs" [class.active]="tab.active"
                     [class.disabled]="tab.disabled" (click)="changeActiveTab(tab)">
                     <span [tabTransclude]="tab.headingTemplate">{{tab.title}}</span>
                 </li>
             </ul>
+        </nav>
+        <div class="container">
             <div class="tabset-content">
                 <ng-content></ng-content>
             </div>
