@@ -6,14 +6,14 @@ import {TabTranscludeDirective} from "./tab-transclude";
     selector: "ngx-tabset",
     template: `
         <style>
-            ul.tabset-header {
+            ul.tabset-header.tabset-style {
                 list-style: none;
                 margin: 0;
                 padding: 0;
+                display: flex;
             }
 
-            ul.tabset-header li {
-                display: inline-block;
+            ul.tabset-header.tabset-style li {
                 padding: 12px;
             }
 
@@ -30,6 +30,8 @@ import {TabTranscludeDirective} from "./tab-transclude";
             }
 
             ul.tabset-header.tabset-style li.disabled:hover {
+                -moz-box-shadow: none;
+                -webkit-box-shadow: none;
                 box-shadow: none;
                 cursor: not-allowed;
             }
