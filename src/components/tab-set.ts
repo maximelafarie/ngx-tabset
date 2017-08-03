@@ -6,37 +6,35 @@ import {TabTranscludeDirective} from "./tab-transclude";
     selector: "ngx-tabset",
     template: `
         <style>
-            .tabset {
-            }
-
-            ul.nav {
+            ul.tabset-header {
                 list-style: none;
                 margin: 0;
                 padding: 0;
             }
 
-            ul.nav li {
+            ul.tabset-header li {
                 display: inline-block;
                 padding: 12px;
             }
 
-            ul.nav li:hover {
+            /* Optional style that can be disabled */
+            ul.tabset-header.tabset-style li:hover {
                 cursor: pointer;
                 -moz-box-shadow: inset 0 -4px 0 0 lightgray;
                 -webkit-box-shadow: inset 0 -4px 0 0 lightgray;
                 box-shadow: inset 0 -4px 0 0 lightgray;
             }
 
-            ul.nav li.disabled {
+            ul.tabset-header.tabset-style li.disabled {
                 opacity: .4;
             }
 
-            ul.nav li.disabled:hover {
+            ul.tabset-header.tabset-style li.disabled:hover {
                 box-shadow: none;
                 cursor: not-allowed;
             }
 
-            ul.nav li.active {
+            ul.tabset-header.tabset-style li.active {
                 -moz-box-shadow: inset 0 -4px 0 0 blue;
                 -webkit-box-shadow: inset 0 -4px 0 0 blue;
                 box-shadow: inset 0 -4px 0 0 blue;
@@ -45,19 +43,14 @@ import {TabTranscludeDirective} from "./tab-transclude";
             .tabset-content {
             }
         </style>
-        <div class="tabset">
-            <ul class="nav" [ngClass]="{ 'nav-tabs': !pills, 'nav-pills': pills }">
-                <li role="presentation" *ngFor="let tab of tabs" [class.active]="tab.active"
-                    [class.disabled]="tab.disabled" (click)="changeActiveTab(tab)">
-                    <a class="btn">
-                        <span [tabTransclude]="tab.headingTemplate">{{tab.title}}</span>
-                    </a>
-
-                </li>
-            </ul>
-            <div class="tabset-content">
-                <ng-content></ng-content>
-            </div>
+        <ul class="tabset-header" [ngClass]="{'nav-tabs': !pills, 'nav-pills': pills, 'tabset-style': !disableStyle}">
+            <li role="presentation" *ngFor="let tab of tabs" [class.active]="tab.active"
+                [class.disabled]="tab.disabled" (click)="changeActiveTab(tab)">
+                <span [tabTransclude]="tab.headingTemplate">{{tab.title}}</span>
+            </li>
+        </ul>
+        <div class="tabset-content">
+            <ng-content></ng-content>
         </div>
     `
 })
@@ -65,6 +58,9 @@ export class TabsetComponent implements AfterContentInit {
 
     @Input()
     public pills: boolean;
+
+    @Input()
+    public disableStyle: boolean;
 
     @ContentChildren(TabComponent)
     public tabs: QueryList<TabComponent>;
