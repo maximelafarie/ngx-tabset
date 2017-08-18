@@ -3,6 +3,12 @@
 `ngx-tabset` is a very simple library (less than 14ko!) to let you create some tabs. It uses flex-box and is 
 compatible with Angular >=2.0.0.
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/biig-io/ngx-tabset.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/biig-io/ngx-tabset.svg?branch=master)](https://travis-ci.org/biig-io/ngx-tabset) [![npm version](https://badge.fury.io/js/ngx-tabset.svg)](https://badge.fury.io/js/ngx-tabset) [![npm downloads](https://img.shields.io/npm/dm/ngx-tabset.svg)](https://npmjs.org/ngx-tabset) [![codecov](https://codecov.io/gh/biig-io/ngx-tabset/branch/master/graph/badge.svg)](https://codecov.io/gh/biig-io/ngx-tabset)
+
+## Demo
+http://biig-io.github.io/ngx-tabset/
+
 **This library doesn't use any framework (no CSS library, no JQuery...)**
 
 ## Setup
