@@ -1,8 +1,8 @@
-## Angular library starter Changelog
+## ngx-tabset Changelog
 
-<a name="Jun 21, 2017"></a>
-### Jun 21, 2017
-* Update _rollup.config_ and _tsconfig_ files
+<a name="1.2.0"></a>
+### 1.2.0
+* Add `Angular Animations` with options to tabs
 * Update building process:
     - TSLint
     - Stop building for errors on Rollup conversion
@@ -11,18 +11,14 @@
 * Update Codelyzer rules
 * Update packages
 
-<a name="May 2, 2017"></a>
-### May 2, 2017
-* Upgrade versions & enable _strict_ TypeScript compiler option
+<a name="1.1.0"></a>
+### 1.1.0
+* Add fixes and add more complete readme
 
-<a name="Mar 25, 2017"></a>
-### Mar 25, 2017
-* Upgrade to Angular 4 configuration
+<a name="1.0.2"></a>
+### 1.0.2
+* Re-add container div inside tabset.
 
-<a name="Mar 6, 2017"></a>
-### Mar 6, 2017
-* Add _compodoc_ for generating documentation 
-
-<a name="Feb 5, 2017"></a>
-### Feb 5, 2017
-* Create library
+<a name="1.0.1"></a>
+### 1.0.1
+* Add fixes to enhance tabs
