@@ -1,0 +1,45 @@
+<h1>Animated tabset with <code>custom nav class</code> and <code>custom tabs class</code></h1>
+
+<ngx-tabset [customNavClass]="'nav-test-class'" [customTabsClass]="'container'">
+  <ngx-tab title="About me">
+    Its all about me.
+  </ngx-tab>
+  <ngx-tab title="Contacts">
+    This is content of the contacts tab
+  </ngx-tab>
+  <ngx-tab title="Map" [disabled]="true">
+    Content of the Map Tab
+  </ngx-tab>
+</ngx-tabset>
+
+<hr>
+
+<h1>Simple Tabset without animation</h1>
+
+<ngx-tabset [animate]="false">
+  <ngx-tab title="About me">
+    Its all about me.
+  </ngx-tab>
+  <ngx-tab title="Contacts">
+    This is content of the contacts tab
+  </ngx-tab>
+  <ngx-tab title="Map" [disabled]="true">
+    Content of the Map Tab
+  </ngx-tab>
+</ngx-tabset>
+
+<hr>
+
+<h1>Tabset without animation and default style</h1>
+
+<ngx-tabset [animate]="false" [disableStyle]="true">
+  <ngx-tab title="About me">
+    Its all about me.
+  </ngx-tab>
+  <ngx-tab title="Contacts">
+    This is content of the contacts tab
+  </ngx-tab>
+  <ngx-tab title="Map" [disabled]="true">
+    Content of the Map Tab
+  </ngx-tab>
+</ngx-tabset>

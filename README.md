@@ -1,94 +1,28 @@
-![image](https://user-images.githubusercontent.com/5319267/28922057-f0d471fa-7858-11e7-8478-010657fd0e60.png)
+# Tabs
 
-`ngx-tabset` is a very simple library (less than 14ko!) to let you create some tabs. It uses flex-box and is 
-compatible with Angular >=2.0.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.4.
 
-**This library doesn't use any framework (no CSS library, no JQuery...)**
+## Development server
 
-## Setup
-To use `ngx-tabset` in your project install it via [npm](https://www.npmjs.com/package/ngx-tabset) / [yarn](https://yarnpkg.com/fr/package/ngx-tabset):
-```
-npm i ngx-tabset --save
-```
-or
-```
-yarn add ngx-tabset
-```
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-If you are using system.js you may want to add this into `map` and `package` config:
-    
-```json
-{
-    "map": {
-        "ngx-tabs": "node_modules/ngx-tabset"
-    },
-    "packages": {
-        "ngx-tabset": { "main": "index.js", "defaultExtension": "js" }
-    }
-}
-```
+## Code scaffolding
 
-## Usage
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
 
-Import `TabsModule` in your app module and start using it in any component:
-```typescript
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+## Build
 
-import {AppComponent} from './app.component';
-import {TabsModule} from 'ngx-tabset';
-import {CommonModule} from '@angular/common';
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    CommonModule,
-    TabsModule.forRoot()
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule {
-}
-```
+## Running unit tests
 
-### Basic example
-```html
-<ngx-tabset>
-  <ngx-tab title="About me">
-    Its all about me.
-  </ngx-tab>
-  <ngx-tab title="Contacts">
-    This is content of the contacts tab
-  </ngx-tab>
-  <ngx-tab title="Map" [disabled]="true">
-    Content of the Map Tab
-  </ngx-tab>
-</ngx-tabset>
-```
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-### More complete example
-```html
-<ngx-tabset [disableStyle]="true" (onSelect)="doSomethingOnTabSelect($event)">
-    <ngx-tab title="Tab title" [disabled]="false" [active]="true">
-        <span *tabHeading>
-            <b style="color: deepskyblue">Dynamic html</b> <i style="color: deeppink">tab heading</i>
-        </span>
-        Tab contents.
-    </ngx-tab>
-    ...
-</ngx-tabset>
-```
+## Running end-to-end tests
 
-* `<ngx-tabset>` is a container for all tabs
-    * `[disableStyle]="true|false"` Disables/enables the built-in style. It allows you to style the entire tab yourself
-    * `(onSelect)="doSomethingOnTabSelect($event)"` Callback to be called when tab is being selected
-* `<ngx-tab>` is a single tab item
-    * `title` Simple tab title
-    * `[disabled]="true|false` Indicates if current tab is enabled or disabled
-    * `<span *tabHeading>...</span>` Allows to specify dynamic html content of the tab title
-    * `[active]="true|false"` Specifies which tab should be active on init. By default the first tab will be active
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Before running the tests make sure you are serving the app via `ng serve`.
 
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

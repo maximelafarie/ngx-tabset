@@ -1,0 +1,16 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+/*
+ngx-tabset {
+  display: block;
+  background-color: #eee;
+
+  ul {
+    display: flex;
+  }
+}*/
+
+ngx-tab:not(.active) {
+  opacity: 0;
+}

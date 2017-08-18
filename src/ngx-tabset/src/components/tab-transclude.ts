@@ -5,21 +5,21 @@ import {Directive, TemplateRef, ViewContainerRef, Input} from "@angular/core";
 })
 export class TabTranscludeDirective {
 
-    public _tabTransclude: TemplateRef<any>;
+    public tabReference: TemplateRef<any>;
 
     constructor(public viewRef: ViewContainerRef) {
     }
 
     @Input()
     set tabTransclude(templateRef: TemplateRef<any>) {
-        this._tabTransclude = templateRef;
+        this.tabReference = templateRef;
         if (templateRef) {
             this.viewRef.createEmbeddedView(templateRef);
         }
     }
 
     get tabTransclude() {
-        return this._tabTransclude;
+        return this.tabReference;
     }
 
 }
