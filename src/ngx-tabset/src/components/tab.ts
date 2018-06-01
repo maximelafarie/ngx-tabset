@@ -1,6 +1,6 @@
-import {Component, Input, ContentChild, TemplateRef} from "@angular/core";
-import {trigger, style, animate, transition} from '@angular/animations';
-import {TabHeadingDirective} from "./tab-heading";
+import { Component, Input, ContentChild, TemplateRef } from "@angular/core";
+import { trigger, style, animate, transition, state } from '@angular/animations';
+import { TabHeadingDirective } from "./tab-heading";
 
 @Component({
   animations: [
@@ -9,22 +9,21 @@ import {TabHeadingDirective} from "./tab-heading";
       [
         transition(
           ':enter', [
-            style({opacity: 0}),
-            animate('200ms 200ms', style({opacity: 1}))
+            style({ opacity: 0 }),
+            animate('200ms')
           ]
         ),
         transition(
           ':leave', [
-            style({opacity: 1}),
-            animate('200ms', style({opacity: 0}))
-
+            style({ opacity: 1 }),
+            animate('200ms')
           ]
         )]
     )
   ],
   selector: "ngx-tab",
   template: `
-    <div *ngIf="active" [@myAnimation]>
+    <div *ngIf="active" [@myAnimation]="active">
       <ng-content></ng-content>
     </div>
   `

@@ -1,6 +1,6 @@
-import {ContentChildren, Component, QueryList, Input, AfterContentInit, EventEmitter, Output} from "@angular/core";
-import {TabComponent} from "./tab";
-import {TabTranscludeDirective} from "./tab-transclude";
+import { ContentChildren, Component, QueryList, Input, AfterContentInit, EventEmitter, Output } from "@angular/core";
+import { TabComponent } from "./tab";
+import { TabTranscludeDirective } from "./tab-transclude";
 
 @Component({
   selector: "ngx-tabset",
@@ -82,7 +82,7 @@ export class TabsetComponent implements AfterContentInit {
         setTimeout(() => {
           tab.active = true;
           me.onSelect.emit(tabs.indexOf(tab));
-        }, 200);
+        }, 201);
       } else {
         tab.active = true;
         me.onSelect.emit(tabs.indexOf(tab));
