@@ -1,11 +1,11 @@
 import { Component, Input, ContentChild, TemplateRef } from "@angular/core";
-import { trigger, style, animate, transition, state } from '@angular/animations';
+import { trigger, style, animate, transition } from '@angular/animations';
 import { TabHeadingDirective } from "./tab-heading";
 
 @Component({
   animations: [
     trigger(
-      'myAnimation',
+      'tabAnimation',
       [
         transition(
           ':enter', [
@@ -23,7 +23,7 @@ import { TabHeadingDirective } from "./tab-heading";
   ],
   selector: "ngx-tab",
   template: `
-    <div *ngIf="active" [@myAnimation]="active">
+    <div *ngIf="active" [@tabAnimation]="active">
       <ng-content></ng-content>
     </div>
   `
@@ -34,7 +34,7 @@ export class TabComponent {
   public heading: TabHeadingDirective;
 
   @Input()
-  public title: string;
+  public tabTitle: string;
 
   @Input()
   public active: boolean = false;
