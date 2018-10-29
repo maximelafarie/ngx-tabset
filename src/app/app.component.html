@@ -1,45 +1,72 @@
-<h1>Animated tabset with <code>custom nav class</code> and <code>custom tabs class</code></h1>
+<h1>ngx-tabset</h1>
 
-<ngx-tabset [customNavClass]="'nav-test-class'" [customTabsClass]="'container'">
-  <ngx-tab title="About me">
-    Its all about me.
-  </ngx-tab>
-  <ngx-tab title="Contacts">
-    This is content of the contacts tab
-  </ngx-tab>
-  <ngx-tab title="Map" [disabled]="true">
-    Content of the Map Tab
-  </ngx-tab>
-</ngx-tabset>
+<div class="container">
+  <section>
+    <div class="section-container">
+      <h2>Animated tabset with custom nav class and custom tabs class</h2>
 
-<hr>
+      <ngx-tabset customNavClass="nav-test-class"
+                  customTabsClass="container">
+        <ngx-tab tabTitle="About me">
+          Its all about me.
+        </ngx-tab>
+        <ngx-tab tabTitle="Contacts">
+          This is content of the contacts tab
+        </ngx-tab>
+        <ngx-tab tabTitle="Map"
+                 [disabled]="true">
+          Content of the Map Tab
+        </ngx-tab>
+      </ngx-tabset>
+    </div>
+  </section>
 
-<h1>Simple Tabset without animation</h1>
 
-<ngx-tabset [animate]="false">
-  <ngx-tab title="About me">
-    Its all about me.
-  </ngx-tab>
-  <ngx-tab title="Contacts">
-    This is content of the contacts tab
-  </ngx-tab>
-  <ngx-tab title="Map" [disabled]="true">
-    Content of the Map Tab
-  </ngx-tab>
-</ngx-tabset>
+  <section>
+    <div class="section-container">
+      <h2>Simple Tabset without animation</h2>
 
-<hr>
+      <ngx-tabset [animate]="false">
+        <ngx-tab tabTitle="About me">
+          Its all about me.
+        </ngx-tab>
+        <ngx-tab tabTitle="Contacts">
+          This is content of the contacts tab
+        </ngx-tab>
+        <ngx-tab tabTitle="Map"
+                 [disabled]="true">
+          Content of the Map Tab
+        </ngx-tab>
+      </ngx-tabset>
+    </div>
+  </section>
 
-<h1>Tabset without animation and default style</h1>
 
-<ngx-tabset [animate]="false" [disableStyle]="true">
-  <ngx-tab title="About me">
-    Its all about me.
-  </ngx-tab>
-  <ngx-tab title="Contacts">
-    This is content of the contacts tab
-  </ngx-tab>
-  <ngx-tab title="Map" [disabled]="true">
-    Content of the Map Tab
-  </ngx-tab>
-</ngx-tabset>
+  <section>
+    <div class="section-container">
+      <h2>Tabset without animation and default style</h2>
+
+      <ngx-tabset [animate]="false"
+                  [disableStyle]="true">
+        <ngx-tab tabTitle="About me">
+          Its all about me.
+        </ngx-tab>
+        <ngx-tab tabTitle="Contacts">
+          This is content of the contacts tab
+        </ngx-tab>
+        <ngx-tab tabTitle="Map"
+                 [disabled]="true">
+          Content of the Map Tab
+        </ngx-tab>
+      </ngx-tabset>
+    </div>
+  </section>
+
+</div>
+
+<footer class="footer">
+  Demo using Angular {{version}}
+  <br> Released under the
+  <a href="https://github.com/biig-io/ngx-tabset/blob/master/LICENSE">MIT</a> license.
+  <a href="https://github.com/biig-io/ngx-tabset">View source</a>.
+</footer>

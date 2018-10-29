@@ -4,7 +4,5 @@ import { Directive, TemplateRef } from "@angular/core";
   selector: "[tabHeading]"
 })
 export class TabHeadingDirective {
-
-  constructor(public templateRef: TemplateRef<any>) {
-  }
+  constructor(public templateRef: TemplateRef<any>) { }
 }

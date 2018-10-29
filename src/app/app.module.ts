@@ -1,10 +1,11 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
 
-import {AppComponent} from './app.component';
-import {TabsModule} from '../ngx-tabset';
-import {CommonModule} from '@angular/common';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { TabsModule } from '../ngx-tabset';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -14,10 +15,10 @@ import {CommonModule} from '@angular/common';
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
+    AppRoutingModule,
     TabsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

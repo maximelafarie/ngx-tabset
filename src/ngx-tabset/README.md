@@ -1,7 +1,6 @@
 ![image](https://user-images.githubusercontent.com/5319267/28922057-f0d471fa-7858-11e7-8478-010657fd0e60.png)
 
-`ngx-tabset` is a very simple library (less than 14ko!) to let you create some tabs. It uses flex-box and is 
-compatible with Angular >=2.0.0.
+`ngx-tabset` is a very simple library which let you create some tabs. It uses flex-box (if you use built-in styles) and is compatible with Angular >=2.0.0.
 
 **This library doesn't use any framework (no CSS library, no JQuery...)**
 
@@ -16,7 +15,7 @@ yarn add ngx-tabset
 ```
 
 If you are using system.js you may want to add this into `map` and `package` config:
-    
+
 ```json
 {
     "map": {
@@ -58,13 +57,13 @@ export class AppModule {
 ### Basic example
 ```html
 <ngx-tabset>
-  <ngx-tab title="About me">
+  <ngx-tab tabTitle="About me">
     Its all about me.
   </ngx-tab>
-  <ngx-tab title="Contacts">
+  <ngx-tab tabTitle="Contacts">
     This is content of the contacts tab
   </ngx-tab>
-  <ngx-tab title="Map" [disabled]="true">
+  <ngx-tab tabTitle="Map" [disabled]="true">
     Content of the Map Tab
   </ngx-tab>
 </ngx-tabset>
@@ -73,7 +72,7 @@ export class AppModule {
 ### More complete example
 ```html
 <ngx-tabset [disableStyle]="true" (onSelect)="doSomethingOnTabSelect($event)">
-    <ngx-tab title="Tab title" [disabled]="false" [active]="true">
+    <ngx-tab tabTitle="Tab title" [disabled]="false" [active]="true">
         <span *tabHeading>
             <b style="color: deepskyblue">Dynamic html</b> <i style="color: deeppink">tab heading</i>
         </span>
@@ -87,8 +86,7 @@ export class AppModule {
     * `[disableStyle]="true|false"` Disables/enables the built-in style. It allows you to style the entire tab yourself
     * `(onSelect)="doSomethingOnTabSelect($event)"` Callback to be called when tab is being selected
 * `<ngx-tab>` is a single tab item
-    * `title` Simple tab title
+    * `tabTitle` Simple tab title
     * `[disabled]="true|false` Indicates if current tab is enabled or disabled
     * `<span *tabHeading>...</span>` Allows to specify dynamic html content of the tab title
     * `[active]="true|false"` Specifies which tab should be active on init. By default the first tab will be active
-

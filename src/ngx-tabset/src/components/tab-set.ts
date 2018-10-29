@@ -1,6 +1,5 @@
 import { ContentChildren, Component, QueryList, Input, AfterContentInit, EventEmitter, Output } from "@angular/core";
 import { TabComponent } from "./tab";
-import { TabTranscludeDirective } from "./tab-transclude";
 
 @Component({
   selector: "ngx-tabset",
@@ -49,7 +48,7 @@ import { TabTranscludeDirective } from "./tab-transclude";
       <ul class="tabset-header" [ngClass]="customNavClass">
         <li role="presentation" *ngFor="let tab of tabs" [class.active]="tab.active"
             [class.disabled]="tab.disabled" (click)="changeActiveTab(tab)">
-          <span [tabTransclude]="tab.headingTemplate">{{ tab.title }}</span>
+          <span [tabTransclude]="tab.headingTemplate">{{ tab.tabTitle }}</span>
         </li>
       </ul>
     </nav>
@@ -61,12 +60,9 @@ import { TabTranscludeDirective } from "./tab-transclude";
   `
 })
 export class TabsetComponent implements AfterContentInit {
-  @Input() public disableStyle: boolean;
-
+  @Input() public disableStyle: boolean = false;
   @Input() public animate: boolean = true;
-
   @Input() public customNavClass: string = '';
-
   @Input() public customTabsClass: string = '';
 
   @ContentChildren(TabComponent) public tabs: QueryList<TabComponent>;
@@ -77,12 +73,14 @@ export class TabsetComponent implements AfterContentInit {
     if (!tab.disabled && !tab.active) {
       const me = this;
       const tabs = this.tabs.toArray();
+
       tabs.forEach((t) => t.active = false);
+
       if (this.animate) {
         setTimeout(() => {
           tab.active = true;
           me.onSelect.emit(tabs.indexOf(tab));
-        }, 201);
+        }, 190);
       } else {
         tab.active = true;
         me.onSelect.emit(tabs.indexOf(tab));

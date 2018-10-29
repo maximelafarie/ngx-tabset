@@ -10,7 +10,7 @@ language: node_js
 node_js:
   - stable
 before_install:
-  - npm i npm@^4 -g
+  - npm i npm -g
   - npm install -g greenkeeper-lockfile@1
   - cd src/ngx-tabset
 install:
