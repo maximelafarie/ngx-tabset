@@ -1,0 +1,32 @@
+$active-tab-color: red !default;
+$default-tab-border: solid 1px transparent !default;
+$tab-border-transition-duration: 200ms !default;
+$tab-border-transition-timing-function: ease-out !default;
+$nav-tab-padding: 10px !default;
+$disabled-tab-opacity: .5 !default;
+$tab-cursor: pointer !default;
+
+.nav-tabset:not(.disable-style) {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+
+  .nav-tab {
+    padding: $nav-tab-padding;
+    border-bottom: $default-tab-border;
+    transition: border $tab-border-transition-duration $tab-border-transition-timing-function;
+
+    &.active {
+      border-color: $active-tab-color;
+    }
+
+    &.disabled {
+      opacity: $disabled-tab-opacity;
+    }
+
+    &:not(.active):not(.disabled) {
+      cursor: $tab-cursor;
+    }
+  }
+}

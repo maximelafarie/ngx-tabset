@@ -1,13 +1,13 @@
 // Karma configuration for Unit testing
 
-module.exports = function(config) {
+const path = require('path');
+
+module.exports = function (config) {
 
   const configuration = {
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
-
-    browserNoActivityTimeout: 100000,
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -18,14 +18,14 @@ module.exports = function(config) {
       require('karma-chrome-launcher'),
       require('karma-webpack'),
       require('karma-sourcemap-loader'),
-      require('karma-coverage'),
-      require('karma-spec-reporter')
+      require('karma-spec-reporter'),
+      require('karma-coverage-istanbul-reporter'),
+      require("istanbul-instrumenter-loader")
     ],
 
     // list of files / patterns to load in the browser
     files: [
-      {pattern: 'spec.bundle.js', watched: false},
-      {pattern: '**/*.map', served: true, included: false, watched: true}
+      { pattern: 'spec.bundle.js', watched: false }
     ],
 
     // list of files to exclude
@@ -34,8 +34,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'spec.bundle.js': ['webpack', 'sourcemap'],
-      './src/**/!(*.test|tests|spec.*).(ts|js)': ['sourcemap']
+      'spec.bundle.js': ['webpack', 'sourcemap']
     },
 
     // webpack
@@ -47,35 +46,49 @@ module.exports = function(config) {
         rules: [
           {
             test: /\.ts/,
-            loaders: ['ts-loader', 'source-map-loader'],
+            use: [
+              { loader: 'ts-loader' },
+              { loader: 'source-map-loader' }
+            ],
             exclude: /node_modules/
+          },
+          {
+            enforce: 'post',
+            test: /\.ts/,
+            use: [
+              {
+                loader: 'istanbul-instrumenter-loader',
+                options: { esModules: true }
+              }
+            ],
+            exclude: [
+              /\.spec.ts/,
+              /node_modules/
+            ]
           }
         ],
         exprContextCritical: false
       },
       devtool: 'inline-source-map',
-      stats: {colors: true, reasons: true},
-      performance: {hints: false}
+      performance: { hints: false }
     },
 
     webpackServer: {
       noInfo: true
     },
 
+
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['spec', 'progress', 'coverage'],
+    reporters: ['spec', 'coverage-istanbul'],
 
-    // Configure code coverage reporter
-    coverageReporter: {
-      dir: './coverage/',
-      reporters: [
-        {type: 'html'},
-        {type: 'json'},
-        {type: 'lcov'}
-      ]
+    coverageIstanbulReporter: {
+      reports: ['html', 'lcovonly'],
+      dir: path.join(__dirname, 'coverage'),
+      fixWebpackSourcePaths: true
     },
+
 
     // web server port
     port: 9876,

@@ -7,4 +7,8 @@ import { Component, VERSION } from '@angular/core';
 })
 export class AppComponent {
   version = VERSION.full;
+
+  public tabSelected(index: number): void {
+    console.log('Tab ' + index + ' has been selected.');
+  }
 }
