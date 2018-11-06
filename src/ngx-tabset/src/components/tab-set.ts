@@ -1,101 +1,58 @@
-import { ContentChildren, Component, QueryList, Input, AfterContentInit, EventEmitter, Output } from "@angular/core";
-import { TabComponent } from "./tab";
+import { Component, ContentChildren, QueryList, AfterContentInit, Input, Output, EventEmitter } from '@angular/core';
+
+import { TabComponent } from './tab';
 
 @Component({
-  selector: "ngx-tabset",
+  selector: 'ngx-tabset',
   template: `
-    <style>
-      .tabset-style ul.tabset-header {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-      }
-
-      .tabset-style ul.tabset-header li {
-        padding: 12px;
-      }
-
-      /* Optional style that can be disabled */
-      .tabset-style ul.tabset-header li:hover {
-        cursor: pointer;
-        -moz-box-shadow: inset 0 -4px 0 0 lightgray;
-        -webkit-box-shadow: inset 0 -4px 0 0 lightgray;
-        box-shadow: inset 0 -4px 0 0 lightgray;
-      }
-
-      .tabset-style ul.tabset-header li.disabled {
-        opacity: .4;
-      }
-
-      .tabset-style ul.tabset-header li.disabled:hover {
-        -moz-box-shadow: none;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        cursor: not-allowed;
-      }
-
-      .tabset-style ul.tabset-header li.active {
-        -moz-box-shadow: inset 0 -4px 0 0 blue;
-        -webkit-box-shadow: inset 0 -4px 0 0 blue;
-        box-shadow: inset 0 -4px 0 0 blue;
-      }
-
-      .tabset-content {
-      }
-    </style>
-    <nav [ngClass]="{'tabset-style': !disableStyle}">
-      <ul class="tabset-header" [ngClass]="customNavClass">
-        <li role="presentation" *ngFor="let tab of tabs" [class.active]="tab.active"
-            [class.disabled]="tab.disabled" (click)="changeActiveTab(tab)">
-          <span [tabTransclude]="tab.headingTemplate">{{ tab.tabTitle }}</span>
-        </li>
-      </ul>
-    </nav>
-    <div class="tabs-container" [ngClass]="customTabsClass" [@.disabled]="!animate">
-      <div class="tabset-content">
-        <ng-content></ng-content>
-      </div>
+    <ul class="nav-tabset"
+        [class.disable-style]="disableStyle"
+        [ngClass]="customNavClass">
+      <li *ngFor="let tab of tabs"
+          (click)="selectTab(tab)"
+          class="nav-tab"
+          [class.active]="tab.active"
+          [class.disabled]="tab.disabled">
+        <span>{{ tab.tabTitle }}</span>
+      </li>
+    </ul>
+    <div class="tabs-container"
+         [ngClass]="customTabsClass">
+      <ng-content></ng-content>
     </div>
   `
 })
 export class TabsetComponent implements AfterContentInit {
-  @Input() public disableStyle: boolean = false;
-  @Input() public animate: boolean = true;
+
+  @ContentChildren(TabComponent) public tabs!: QueryList<TabComponent>;
+
+  @Input() public disableStyle = false;
   @Input() public customNavClass: string = '';
   @Input() public customTabsClass: string = '';
 
-  @ContentChildren(TabComponent) public tabs: QueryList<TabComponent>;
+  @Output() public onSelect = new EventEmitter();
 
-  @Output() public onSelect = new EventEmitter(false);
+  // contentChildren are set
+  public ngAfterContentInit() {
+    // get all active tabs
+    const activeTabs = this.tabs.filter((tab: TabComponent) => tab.active);
 
-  public changeActiveTab(tab: TabComponent) {
-    if (!tab.disabled && !tab.active) {
-      const me = this;
-      const tabs = this.tabs.toArray();
-
-      tabs.forEach((t) => t.active = false);
-
-      if (this.animate) {
-        setTimeout(() => {
-          tab.active = true;
-          me.onSelect.emit(tabs.indexOf(tab));
-        }, 190);
-      } else {
-        tab.active = true;
-        me.onSelect.emit(tabs.indexOf(tab));
-      }
+    // if there is no active tab set, activate the first
+    if (activeTabs.length === 0) {
+      this.selectTab(this.tabs.first);
     }
   }
 
-  public ngAfterContentInit() {
-    setTimeout(() => {
-      const readTabs = this.tabs.toArray();
-      const activeTab = readTabs.find((tab) => tab.active === true);
-      if (!activeTab && readTabs.length > 0) {
-        readTabs[0].active = true;
-      }
-    });
-  }
+  public selectTab(tabToSelect: TabComponent): void {
+    if (tabToSelect.disabled === true || tabToSelect.active === true) {
+      return;
+    }
 
+    // deactivate all tabs
+    this.tabs.toArray().forEach((tab: TabComponent) => tab.active = false);
+
+    // activate the tab the user has clicked on.
+    tabToSelect.active = true;
+    this.onSelect.emit(this.tabs.toArray().indexOf(tabToSelect));
+  }
 }

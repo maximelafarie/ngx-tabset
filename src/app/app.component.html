@@ -3,7 +3,7 @@
 <div class="container">
   <section>
     <div class="section-container">
-      <h2>Animated tabset with custom nav class and custom tabs class</h2>
+      <h2>Tabs with default style</h2>
 
       <ngx-tabset customNavClass="nav-test-class"
                   customTabsClass="container">
@@ -24,14 +24,16 @@
 
   <section>
     <div class="section-container">
-      <h2>Simple Tabset without animation</h2>
+      <h2>Tabs with selected tab and <code>onSelect</code> event</h2>
 
-      <ngx-tabset [animate]="false">
+      <ngx-tabset (onSelect)="tabSelected($event)">
         <ngx-tab tabTitle="About me">
           Its all about me.
         </ngx-tab>
-        <ngx-tab tabTitle="Contacts">
-          This is content of the contacts tab
+        <ngx-tab tabTitle="Contacts"
+                 [active]="true">
+          <p>This is content of the contacts tab</p>
+          <p>Watch your console, <u>events are logged</u>!</p>
         </ngx-tab>
         <ngx-tab tabTitle="Map"
                  [disabled]="true">
@@ -44,10 +46,9 @@
 
   <section>
     <div class="section-container">
-      <h2>Tabset without animation and default style</h2>
+      <h2>Tabset without style</h2>
 
-      <ngx-tabset [animate]="false"
-                  [disableStyle]="true">
+      <ngx-tabset [disableStyle]="true">
         <ngx-tab tabTitle="About me">
           Its all about me.
         </ngx-tab>

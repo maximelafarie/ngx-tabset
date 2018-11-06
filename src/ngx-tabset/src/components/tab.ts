@@ -1,48 +1,24 @@
-import { Component, Input, ContentChild, TemplateRef } from "@angular/core";
-import { trigger, style, animate, transition } from '@angular/animations';
-import { TabHeadingDirective } from "./tab-heading";
+import { Component, Input } from '@angular/core';
 
 @Component({
-  animations: [
-    trigger(
-      'tabAnimation',
-      [
-        transition(
-          ':enter', [
-            style({ opacity: 0 }),
-            animate('200ms')
-          ]
-        ),
-        transition(
-          ':leave', [
-            style({ opacity: 1 }),
-            animate('200ms')
-          ]
-        )]
-    )
-  ],
-  selector: "ngx-tab",
+  selector: 'ngx-tab',
   template: `
-    <div *ngIf="active" [@tabAnimation]="active">
+    <div *ngIf="active"
+         class="pane"
+         [ngClass]="customPaneClass">
       <ng-content></ng-content>
     </div>
   `
 })
 export class TabComponent {
+  @Input() public tabTitle!: string;
+  @Input() public active = false;
+  @Input() public disabled = false;
+  @Input() public customPaneClass: string = '';
 
-  @ContentChild(TabHeadingDirective)
-  public heading: TabHeadingDirective;
-
-  @Input()
-  public tabTitle: string;
-
-  @Input()
-  public active: boolean = false;
-
-  @Input()
-  public disabled = false;
-
-  get headingTemplate(): TemplateRef<any> | null {
-    return this.heading ? this.heading.templateRef : null;
+  constructor() {
+    if (!this.tabTitle || this.tabTitle.length <= 0) {
+      throw new Error('Tab instances should have a title. Please add tabTitle option on each <ngx-tab></ngx-tab> element.');
+    }
   }
 }

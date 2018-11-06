@@ -1,0 +1,4 @@
+/**
+ * @license ngx-tabset
+ * MIT license
+ */

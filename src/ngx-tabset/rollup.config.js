@@ -1,23 +1,21 @@
 import resolve from 'rollup-plugin-node-resolve';
+import sourcemaps from 'rollup-plugin-sourcemaps';
 
-// Add here external dependencies that actually you use.
 const globals = {
-    '@angular/core': 'ng.core',
-    '@angular/common': 'ng.common',
-    '@angular/platform-browser': 'ng.platformBrowser',
-    'rxjs/Observable': 'Rx',
-    'rxjs/Observer': 'Rx',
-    'rxjs/add/operator/map': 'Rx'
+  '@angular/core': 'ng.core',
+  '@angular/common': 'ng.common',
+  '@angular/platform-browser': 'ng.platformBrowser'
 };
 
 export default {
-    entry: './dist/modules/ngx-tabset.es5.js',
-    dest: './dist/bundles/ngx-tabset.umd.js',
+  external: Object.keys(globals),
+  plugins: [resolve(), sourcemaps()],
+  onwarn: () => { return },
+  output: {
     format: 'umd',
-    exports: 'named',
-    moduleName: 'ng.ngxTabset',
-    plugins: [resolve()],
-    external: Object.keys(globals),
+    name: 'ng.ngxTabset',
     globals: globals,
-    onwarn: () => { return }
+    sourcemap: true,
+    exports: 'named'
+  }
 }

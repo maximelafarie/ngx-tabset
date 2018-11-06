@@ -1,0 +1,60 @@
+{
+  "extends": "stylelint-config-standard",
+  "ignoreFiles": [
+    "src/assets/**/*",
+    "dist/assets/**/*"
+  ],
+  "rules": {
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "extend",
+          "at-root",
+          "debug",
+          "warn",
+          "error",
+          "if",
+          "else",
+          "for",
+          "each",
+          "while",
+          "mixin",
+          "include",
+          "content",
+          "return",
+          "function"
+        ]
+      }
+    ],
+    "number-leading-zero": "never",
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "ignore": [
+          "inside-block",
+          "blockless-after-same-name-blockless",
+          "blockless-after-blockless"
+        ]
+      }
+    ],
+    "no-eol-whitespace": [
+      true,
+      {
+        "ignore": [
+          "empty-lines"
+        ]
+      }
+    ],
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignoreTypes": [
+          "ngx-tabset",
+          "ngx-tab"
+        ]
+      }
+    ],
+    "no-descending-specificity": null
+  }
+}

@@ -1,6 +1,6 @@
-import {inject, TestBed, async} from '@angular/core/testing';
+import { TestBed, async } from '@angular/core/testing';
 
-import {TabsetComponent, TabComponent, TabHeadingDirective, TabTranscludeDirective} from './../../index';
+import { TabsetComponent, TabComponent } from './../../index';
 
 describe('TabsetComponent', () => {
 
@@ -8,9 +8,7 @@ describe('TabsetComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         TabsetComponent,
-        TabComponent,
-        TabHeadingDirective,
-        TabTranscludeDirective
+        TabComponent
       ]
     }).compileComponents();
   }));
