@@ -24,7 +24,7 @@ import { TabComponent } from './tab';
 })
 export class TabsetComponent implements AfterContentInit {
 
-  @ContentChildren(TabComponent) public tabs: QueryList<TabComponent>;
+  @ContentChildren(TabComponent) public tabs!: QueryList<TabComponent>;
 
   @Input() public disableStyle = false;
   @Input() public customNavClass: string = '';
