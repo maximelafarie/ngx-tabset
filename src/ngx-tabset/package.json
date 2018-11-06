@@ -1,6 +1,6 @@
 {
   "name": "ngx-tabset",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "description": "A very simple library to let you create some tabs",
   "main": "./bundles/ngx-tabset.umd.js",
   "module": "./esm5/ngx-tabset.js",
