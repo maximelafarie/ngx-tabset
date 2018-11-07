@@ -10,8 +10,11 @@
         <ngx-tab tabTitle="About me">
           Its all about me.
         </ngx-tab>
-        <ngx-tab tabTitle="Contacts">
-          This is content of the contacts tab
+        <ngx-tab tabTitle="Contacts"
+                 [bypassDOM]="true">
+          <ng-template>
+            This is content of the contacts tab
+          </ng-template>
         </ngx-tab>
         <ngx-tab tabTitle="Map"
                  [disabled]="true">
@@ -27,17 +30,26 @@
       <h2>Tabs with selected tab and <code>onSelect</code> event</h2>
 
       <ngx-tabset (onSelect)="tabSelected($event)">
-        <ngx-tab tabTitle="About me">
-          Its all about me.
+        <ngx-tab tabTitle="About me"
+                 [bypassDOM]="true">
+          <ng-template>
+            <app-my-component></app-my-component>
+          </ng-template>
         </ngx-tab>
         <ngx-tab tabTitle="Contacts"
+                 [bypassDOM]="true"
                  [active]="true">
-          <p>This is content of the contacts tab</p>
-          <p>Watch your console, <u>events are logged</u>!</p>
+          <ng-template>
+            <app-my-other-component></app-my-other-component>
+            <p>Watch your console, <u>events are logged</u>!</p>
+          </ng-template>
         </ngx-tab>
         <ngx-tab tabTitle="Map"
+                 [bypassDOM]="true"
                  [disabled]="true">
-          Content of the Map Tab
+          <ng-template>
+            Content of the Map Tab
+          </ng-template>
         </ngx-tab>
       </ngx-tabset>
     </div>

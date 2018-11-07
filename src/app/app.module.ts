@@ -6,10 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TabsModule } from '../ngx-tabset';
 import { CommonModule } from '@angular/common';
+import { MyComponentComponent } from './my-component/my-component.component';
+import { MyOtherComponentComponent } from './my-other-component/my-other-component.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MyComponentComponent,
+    MyOtherComponentComponent
   ],
   imports: [
     BrowserModule,

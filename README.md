@@ -24,8 +24,8 @@ If you are using system.js you may want to add this into your config:
 
 ```json
 System.config({
-    map: {
-        'ngx-tabset': 'node_modules/ngx-tabset/bundles/ngx-tabset.umd.js'
+    "map": {
+        "ngx-tabset": "node_modules/ngx-tabset/bundles/ngx-tabset.umd.js"
     }
 });
 ```
@@ -85,8 +85,10 @@ Example with **styles.scss**:
 ### More complete example
 ```html
 <ngx-tabset [disableStyle]="true" (onSelect)="doSomethingOnTabSelect($event)">
-    <ngx-tab tabTitle="Tab title" [active]="true">
-        <my-component></my-component>
+    <ngx-tab tabTitle="Tab title" [active]="true" [bypassDOM]="true">
+        <ng-template>
+          <app-my-component></app-my-component>
+        </ng-template>
     </ngx-tab>
     ...
 </ngx-tabset>
@@ -126,9 +128,9 @@ The below documentation will use the following pattern:
 
 - `$disabled-tab-opacity` (0 - 1) | `.5` ― _The nav tab opacity of disabled tabs_
 
-- `$disabled-tab-opacity` (0 - 1) | `.5` ― _The nav tab opacity of disabled tabs_
-
 - `$tab-cursor` ([cursor](https://developer.mozilla.org/fr/docs/Web/CSS/cursor)) | `pointer` ― _Defines the cursor type for tabs that aren't disabled or active._
+
+- `$tab-border-transition-duration` (duration) | `200ms` ― _The animation duration. You can use any duration unit you want_
 
 - `$tab-border-transition-timing-function` (transition-timing-function Property) | `ease-in-out` ― _Specifies the speed curve of the transition effect ([available speed curves here](https://www.w3schools.com/cssref/css3_pr_transition-timing-function.asp))_
 
@@ -140,6 +142,8 @@ The below documentation will use the following pattern:
 > `parameter/option name` (type) | default value | required? ― _description_
 
 - `disableStyle` (boolean) | `false` ― _Enable / disable default tabset style. E.g.: it's useful if you want to keep the provided style on some tabs and disable it on others_
+
+- `bypassDOM` (boolean) | `false` ― _Option to allow the tab to trigger lifecycle events to the wrapped content, e.g. for wrapped components. You need to surround tab content with `<ng-template>...</ng-template>` in order to make it work. Please check the [above example](https://github.com/biig-io/ngx-tabset#more-complete-example) for full implementation_
 
 - `customNavClass` (string) | `''` ― _All the additionnal classes you want to add to the tabset **header / nav**. You can add several classes by giving a string with space-separated classnames_
 

@@ -22,7 +22,8 @@ export class TabsModule {
    */
   public static forRoot(): ModuleWithProviders {
     return {
-      ngModule: TabsModule
+      ngModule: TabsModule,
+      providers: []
     };
   }
 
@@ -31,7 +32,8 @@ export class TabsModule {
    */
   public static forChild(): ModuleWithProviders {
     return {
-      ngModule: TabsModule
+      ngModule: TabsModule,
+      providers: []
     };
   }
 
