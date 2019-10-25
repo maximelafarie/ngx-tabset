@@ -150,3 +150,6 @@ The below documentation will use the following pattern:
 - `customTabsClass` (string) | `''` ― _All the additionnal classes you want to add to the tabset **container**. You can add several classes by giving a string with space-separated classnames_
 
 - `customPaneClass` (string) | `''` ― _All the additionnal classes you want to add to **each** tab pane. You can add several classes by giving a string with space-separated classnames_
+
+## Issues
+If you wish to submit an issue, please use the available template to facilitate reading and comprehension of all issues encountered. You can find this template in `./github/issue_template.md`.
