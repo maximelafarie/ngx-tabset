@@ -14,6 +14,7 @@ import { TabComponent } from './tab';
           [class.active]="tab.active"
           [class.disabled]="tab.disabled">
         <span>{{ tab.tabTitle }}</span>
+        <span *ngIf="!!tab.tabSubTitle" class="tab-subtitle">{{ tab.tabSubTitle }}</span>
       </li>
     </ul>
     <div class="tabs-container"

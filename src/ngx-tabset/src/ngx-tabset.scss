@@ -17,6 +17,11 @@ $tab-cursor: pointer !default;
     border-bottom: $default-tab-border;
     transition: border $tab-border-transition-duration $tab-border-transition-timing-function;
 
+    > .tab-subtitle {
+      display: block;
+      font-size: .7rem;
+    }
+
     &.active {
       border-color: $active-tab-color;
     }

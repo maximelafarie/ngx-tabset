@@ -17,6 +17,7 @@ import { Component, Input, ContentChild, TemplateRef } from '@angular/core';
 })
 export class TabComponent {
   @Input() public tabTitle: string;
+  @Input() public tabSubTitle: string;
   @Input() public active = false;
   @Input() public disabled = false;
   @Input() public bypassDOM = false;
