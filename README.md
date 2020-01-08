@@ -69,20 +69,22 @@ Example with **styles.scss**:
 
 ### Basic example
 ```html
-<ngx-tabset>
-  <ngx-tab tabTitle="About me">
+<ngx-tabset customNavClass="nav-test-class" customTabsClass="container">
+  <ngx-tab tabTitle="About me" tabSubTitle="a little subtitle">
     Its all about me.
   </ngx-tab>
-  <ngx-tab tabTitle="Contacts">
-    This is content of the contacts tab
+  <ngx-tab tabTitle="Contacts" tabSubTitle="my contacts" [bypassDOM]="true">
+    <ng-template>
+      This is content of the contacts tab
+    </ng-template>
   </ngx-tab>
-  <ngx-tab tabTitle="Map" [disabled]="true">
+  <ngx-tab tabTitle="Map" tabSubTitle="i'm disabled" [disabled]="true">
     Content of the Map Tab
   </ngx-tab>
 </ngx-tabset>
 ```
 
-### More complete example
+### Content projection example
 ```html
 <ngx-tabset [disableStyle]="true" (onSelect)="doSomethingOnTabSelect($event)">
     <ngx-tab tabTitle="Tab title" [active]="true" [bypassDOM]="true">
@@ -99,6 +101,7 @@ Example with **styles.scss**:
     * `(onSelect)="doSomethingOnTabSelect($event)"` Callback to be called when tab is being selected. It returns the index of the selected tab into tabset collection.
 * `<ngx-tab>` is a single tab item
     * `tabTitle` The tab title
+    * `tabSubTitle` The tab subtitle
     * `[disabled]="true|false` Indicates if current tab is enabled or disabled
     * `[active]="true|false"` Specifies which tab should be active on init. By default the first tab will be active.
 

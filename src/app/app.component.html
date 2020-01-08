@@ -5,19 +5,16 @@
     <div class="section-container">
       <h2>Tabs with default style</h2>
 
-      <ngx-tabset customNavClass="nav-test-class"
-                  customTabsClass="container">
-        <ngx-tab tabTitle="About me">
+      <ngx-tabset customNavClass="nav-test-class" customTabsClass="container">
+        <ngx-tab tabTitle="About me" tabSubTitle="a little subtitle">
           Its all about me.
         </ngx-tab>
-        <ngx-tab tabTitle="Contacts"
-                 [bypassDOM]="true">
+        <ngx-tab tabTitle="Contacts" tabSubTitle="my contacts" [bypassDOM]="true">
           <ng-template>
             This is content of the contacts tab
           </ng-template>
         </ngx-tab>
-        <ngx-tab tabTitle="Map"
-                 [disabled]="true">
+        <ngx-tab tabTitle="Map" tabSubTitle="i'm disabled" [disabled]="true">
           Content of the Map Tab
         </ngx-tab>
       </ngx-tabset>
@@ -30,23 +27,18 @@
       <h2>Tabs with selected tab and <code>onSelect</code> event</h2>
 
       <ngx-tabset (onSelect)="tabSelected($event)">
-        <ngx-tab tabTitle="About me"
-                 [bypassDOM]="true">
+        <ngx-tab tabTitle="About me" [bypassDOM]="true">
           <ng-template>
             <app-my-component></app-my-component>
           </ng-template>
         </ngx-tab>
-        <ngx-tab tabTitle="Contacts"
-                 [bypassDOM]="true"
-                 [active]="true">
+        <ngx-tab tabTitle="Contacts" [bypassDOM]="true" [active]="true">
           <ng-template>
             <app-my-other-component></app-my-other-component>
             <p>Watch your console, <u>events are logged</u>!</p>
           </ng-template>
         </ngx-tab>
-        <ngx-tab tabTitle="Map"
-                 [bypassDOM]="true"
-                 [disabled]="true">
+        <ngx-tab tabTitle="Map" [bypassDOM]="true" [disabled]="true">
           <ng-template>
             Content of the Map Tab
           </ng-template>
@@ -67,8 +59,7 @@
         <ngx-tab tabTitle="Contacts">
           This is content of the contacts tab
         </ngx-tab>
-        <ngx-tab tabTitle="Map"
-                 [disabled]="true">
+        <ngx-tab tabTitle="Map" [disabled]="true">
           Content of the Map Tab
         </ngx-tab>
       </ngx-tabset>
