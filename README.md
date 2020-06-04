@@ -6,7 +6,7 @@
 `ngx-tabset` is a very simple library to let you create some tabs. It uses flex-box and is compatible with Angular >=2.0.0.
 
 ## Demo
-http://maximelafarie.github.io/ngx-tabset/
+https://maximelafarie.com/ngx-tabset/
 
 **This library doesn't use any framework (no CSS library, no JQuery...)**
 
