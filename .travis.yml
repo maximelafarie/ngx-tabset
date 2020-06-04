@@ -1,15 +1,13 @@
 sudo: required
 dist: trusty
 addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+  chrome: stable
 language: node_js
 node_js:
   - stable
 before_install:
+  - echo "$TRAVIS_BRANCH"
+  - echo "$TRAVIS_PULL_REQUEST"
   - npm i npm -g
   - npm install -g greenkeeper-lockfile@1
   - cd src/ngx-tabset
@@ -29,7 +27,7 @@ after_success:
   - codecov
   - rm -r node_modules
   - cd ../..
-  - npm run ghpages
+  - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == false ]; then npm run ghpages; fi
 notifications:
   email: false
 deploy:
