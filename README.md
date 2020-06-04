@@ -1,12 +1,12 @@
 ![image](https://user-images.githubusercontent.com/5319267/28922057-f0d471fa-7858-11e7-8478-010657fd0e60.png)
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/biig-io/ngx-tabset.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/biig-io/ngx-tabset.svg?branch=master)](https://travis-ci.org/biig-io/ngx-tabset) [![npm version](https://badge.fury.io/js/ngx-tabset.svg)](https://badge.fury.io/js/ngx-tabset) [![npm downloads](https://img.shields.io/npm/dm/ngx-tabset.svg)](https://npmjs.org/ngx-tabset) [![codecov](https://codecov.io/gh/biig-io/ngx-tabset/branch/master/graph/badge.svg)](https://codecov.io/gh/biig-io/ngx-tabset)
+[![Greenkeeper badge](https://badges.greenkeeper.io/maximelafarie/ngx-tabset.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/maximelafarie/ngx-tabset.svg?branch=master)](https://travis-ci.org/maximelafarie/ngx-tabset) [![npm version](https://badge.fury.io/js/ngx-tabset.svg)](https://badge.fury.io/js/ngx-tabset) [![npm downloads](https://img.shields.io/npm/dm/ngx-tabset.svg)](https://npmjs.org/ngx-tabset) [![codecov](https://codecov.io/gh/maximelafarie/ngx-tabset/branch/master/graph/badge.svg)](https://codecov.io/gh/maximelafarie/ngx-tabset)
 
 `ngx-tabset` is a very simple library to let you create some tabs. It uses flex-box and is compatible with Angular >=2.0.0.
 
 ## Demo
-http://biig-io.github.io/ngx-tabset/
+http://maximelafarie.github.io/ngx-tabset/
 
 **This library doesn't use any framework (no CSS library, no JQuery...)**
 
@@ -65,7 +65,7 @@ Example with **styles.scss**:
 @import "app/app.component";
 ...
 ```
-[Demo example here](https://github.com/biig-io/ngx-tabset/blob/master/src/styles.scss)
+[Demo example here](https://maximelafarie.com/ngx-tabset/blob/master/src/styles.scss)
 
 ### Basic example
 ```html
@@ -146,7 +146,7 @@ The below documentation will use the following pattern:
 
 - `disableStyle` (boolean) | `false` ― _Enable / disable default tabset style. E.g.: it's useful if you want to keep the provided style on some tabs and disable it on others_
 
-- `bypassDOM` (boolean) | `false` ― _Option to allow the tab to trigger lifecycle events to the wrapped content, e.g. for wrapped components. You need to surround tab content with `<ng-template>...</ng-template>` in order to make it work. Please check the [above example](https://github.com/biig-io/ngx-tabset#more-complete-example) for full implementation_
+- `bypassDOM` (boolean) | `false` ― _Option to allow the tab to trigger lifecycle events to the wrapped content, e.g. for wrapped components. You need to surround tab content with `<ng-template>...</ng-template>` in order to make it work. Please check the [above example](https://maximelafarie.com/ngx-tabset#more-complete-example) for full implementation_
 
 - `customNavClass` (string) | `''` ― _All the additionnal classes you want to add to the tabset **header / nav**. You can add several classes by giving a string with space-separated classnames_
 

@@ -20,12 +20,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/biig-io/ngx-tabset.git"
+    "url": "https://maximelafarie.com/ngx-tabset.git"
   },
   "bugs": {
-    "url": "https://github.com/biig-io/ngx-tabset/issues"
+    "url": "https://maximelafarie.com/ngx-tabset/issues"
   },
-  "homepage": "https://github.com/biig-io/ngx-tabset",
+  "homepage": "https://maximelafarie.com/ngx-tabset",
   "keywords": [
     "ngx-tabset",
     "javascript",
